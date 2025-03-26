@@ -1,7 +1,8 @@
-// Enterprise_Data_Cleaning/frontend/src/pages/UploadPage.js
+// frontend/src/pages/UploadPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FileUpload from '../components/FileUpload';
+import AnimatedPageWrapper from '../components/AnimatedPageWrapper';
 
 const UploadPage = () => {
   const navigate = useNavigate();
@@ -9,15 +10,18 @@ const UploadPage = () => {
 
   const handleUploadSuccess = (path) => {
     setFilePath(path);
-    // Navigate to the Cleaning Page and pass the filePath in state
     navigate('/cleaning', { state: { filePath: path } });
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <AnimatedPageWrapper>
       <h1>Upload File</h1>
-      <FileUpload onUploadSuccess={handleUploadSuccess} />
-    </div>
+      <FileUpload 
+        onUploadSuccess={handleUploadSuccess} 
+        showCleanButton={false} // Hides the clean data section on this page
+        hideFileInput={false}   // Ensures file input is visible alongside drag & drop
+      />
+    </AnimatedPageWrapper>
   );
 };
 

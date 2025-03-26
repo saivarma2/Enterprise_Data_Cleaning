@@ -1,7 +1,8 @@
-// Enterprise_Data_Cleaning/frontend/src/pages/ReportPage.js
+// frontend/src/pages/ReportPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import AnimatedPageWrapper from '../components/AnimatedPageWrapper';
 
 const ReportPage = () => {
   const [reportMessage, setReportMessage] = useState('');
@@ -21,13 +22,13 @@ const ReportPage = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <AnimatedPageWrapper>
       <h1>Report Generation & Visuals</h1>
       <button onClick={onGenerateReport}>Generate Report & Visuals</button>
       <p>{reportMessage}</p>
       {reportPath && <p>Report saved in: {reportPath}</p>}
-      {/* Integrate charts/graphs here as needed */}
-    </div>
+      {/* Future visualizations can be added here */}
+    </AnimatedPageWrapper>
   );
 };
 
