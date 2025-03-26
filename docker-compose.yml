@@ -1,0 +1,10 @@
+# Enterprise_Data_Cleaning/docker-compose.yml
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app

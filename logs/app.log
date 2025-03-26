@@ -1,0 +1,81 @@
+2025-03-26 15:42:58,249 - EnterpriseDataCleaning - INFO - File saved: data/uploads\Example-3.xlsx
+2025-03-26 15:43:03,127 - EnterpriseDataCleaning - INFO - Data loaded from file: data/uploads\Example-3.xlsx
+2025-03-26 15:43:03,128 - EnterpriseDataCleaning - INFO - Data cleaning process completed.
+2025-03-26 15:43:03,141 - EnterpriseDataCleaning - ERROR - Error saving cleaned data:
+Traceback (most recent call last):
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\data_cleaner_class.py", line 27, in save_cleaned_data
+    writer.book = book
+    ^^^^^^^^^^^
+AttributeError: property 'book' of 'OpenpyxlWriter' object has no setter
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\data_cleaner_class.py", line 26, in save_cleaned_data
+    with pd.ExcelWriter(self.file_path, engine='openpyxl') as writer:
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\excel\_base.py", line 1370, in __exit__
+    self.close()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\excel\_base.py", line 1374, in close
+    self._save()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 110, in _save
+    self.book.save(self._handles.handle)
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2025-03-26 15:43:03,259 - EnterpriseDataCleaning - ERROR - Error during data cleaning:
+Traceback (most recent call last):
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\data_cleaner_class.py", line 27, in save_cleaned_data
+    writer.book = book
+    ^^^^^^^^^^^
+AttributeError: property 'book' of 'OpenpyxlWriter' object has no setter
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\routes\file_routes.py", line 38, in clean_file
+    result_path = data_cleaning.clean_data(file_path)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\data_cleaning.py", line 7, in clean_data
+    return cleaner.save_cleaned_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\data_cleaner_class.py", line 36, in save_cleaned_data
+    raise e
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\data_cleaner_class.py", line 26, in save_cleaned_data
+    with pd.ExcelWriter(self.file_path, engine='openpyxl') as writer:
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\excel\_base.py", line 1370, in __exit__
+    self.close()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\excel\_base.py", line 1374, in close
+    self._save()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 110, in _save
+    self.book.save(self._handles.handle)
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
