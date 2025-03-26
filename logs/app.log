@@ -1422,3 +1422,55 @@ Traceback (most recent call last):
   File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
     raise IndexError("At least one sheet must be visible")
 IndexError: At least one sheet must be visible
+2025-03-26 17:53:52,375 - EnterpriseDataCleaning - ERROR - Error during file analysis:
+Traceback (most recent call last):
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\analysis_service.py", line 10, in analyze_file
+    wb = openpyxl.load_workbook(file_path, read_only=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\excel.py", line 346, in load_workbook
+    reader.read()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\excel.py", line 287, in read
+    self.read_manifest()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\excel.py", line 134, in read_manifest
+    src = self.archive.read(ARC_CONTENT_TYPES)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\zipfile.py", line 1510, in read
+    with self.open(name, "r", pwd) as fp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\zipfile.py", line 1547, in open
+    zinfo = self.getinfo(name)
+            ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\zipfile.py", line 1476, in getinfo
+    raise KeyError(
+KeyError: "There is no item named '[Content_Types].xml' in the archive"
+2025-03-26 17:53:52,417 - EnterpriseDataCleaning - ERROR - Error during file analysis:
+Traceback (most recent call last):
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\routes\file_routes.py", line 57, in analyze_file
+    analysis = analysis_service.analyze_file(file_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\analysis_service.py", line 63, in analyze_file
+    raise e
+  File "C:\Users\Sai Varma\Desktop\Enterprise_Data_Cleaning\backend\services\analysis_service.py", line 10, in analyze_file
+    wb = openpyxl.load_workbook(file_path, read_only=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\excel.py", line 346, in load_workbook
+    reader.read()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\excel.py", line 287, in read
+    self.read_manifest()
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\reader\excel.py", line 134, in read_manifest
+    src = self.archive.read(ARC_CONTENT_TYPES)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\zipfile.py", line 1510, in read
+    with self.open(name, "r", pwd) as fp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\zipfile.py", line 1547, in open
+    zinfo = self.getinfo(name)
+            ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sai Varma\AppData\Local\Programs\Python\Python311\Lib\zipfile.py", line 1476, in getinfo
+    raise KeyError(
+KeyError: "There is no item named '[Content_Types].xml' in the archive"
+2025-03-26 17:54:21,515 - EnterpriseDataCleaning - INFO - File saved: data/uploads\Example-3.xlsx
+2025-03-26 17:54:22,286 - EnterpriseDataCleaning - INFO - File analysis complete.
+2025-03-26 17:54:35,067 - EnterpriseDataCleaning - INFO - File analysis complete.
+2025-03-26 17:54:41,806 - EnterpriseDataCleaning - INFO - File saved: data/uploads\Example-2.xlsx
+2025-03-26 17:54:42,488 - EnterpriseDataCleaning - INFO - File analysis complete.
